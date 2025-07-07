@@ -1,0 +1,49 @@
+<!-- app.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Planning Hebdomadaire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <h1>🗓️ Mes Tâches Hebdomadaires</h1>
+    <button id="logoutBtn">Se déconnecter</button>
+  </div>
+  <div id="week-nav">
+    <button id="prevWeek">&larr; Semaine précédente</button>
+    <span id="weekLabel"></span>
+    <button id="nextWeek">Semaine suivante &rarr;</button>
+  </div>
+  <div id="week"></div>
+
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2 id="modalDate"></h2>
+      <ul id="taskList"></ul>
+      <input type="text" id="newTask" placeholder="Nouvelle tâche...">
+      <button id="addTask">Ajouter</button>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDRn6Suia7nVWZdKNgNHdhpsvIv93pIaZ4",
+      authDomain: "tacheshebdo.firebaseapp.com",
+      databaseURL: "https://tacheshebdo-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "tacheshebdo",
+      storageBucket: "tacheshebdo.firebasestorage.app",
+      messagingSenderId: "409480351613",
+      appId: "1:409480351613:web:9f81a040c7ff4e230c4614"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

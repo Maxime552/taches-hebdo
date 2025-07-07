@@ -1,0 +1,31 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Bienvenue 👋</h1>
+    <p>Entrez le code pour vous connecter :</p>
+    <input type="password" id="codeInput" placeholder="Code...">
+    <button onclick="checkCode()">Connexion</button>
+  </div>
+  <script>
+    function checkCode() {
+      const code = document.getElementById('codeInput').value;
+      if (code === 'admin') {
+        localStorage.setItem('role', 'admin');
+        window.location.href = 'app.html';
+      } else if (code === 'user') {
+        localStorage.setItem('role', 'user');
+        window.location.href = 'app.html';
+      } else {
+        alert('Code incorrect. Essayez "admin" ou "user".');
+      }
+    }
+  </script>
+</body>
+</html>
