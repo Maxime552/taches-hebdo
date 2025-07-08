@@ -32,6 +32,29 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
   <script>
+function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const error = document.getElementById("login-error");
+
+  const users = {
+    admin: "admin",
+    user: "user"
+  };
+
+  if (users[username] && users[username] === password) {
+    const isAdmin = username === "admin";
+    sessionStorage.setItem("isAdmin", isAdmin);
+
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("app").style.display = "block";
+
+    // Tu peux ici appeler une fonction initApp() si nécessaire
+    if (typeof initApp === "function") initApp();
+  } else {
+    error.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+  }
+}
     const firebaseConfig = {
       apiKey: "AIzaSyDRn6Suia7nVWZdKNgNHdhpsvIv93pIaZ4",
       authDomain: "tacheshebdo.firebaseapp.com",

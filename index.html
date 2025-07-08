@@ -1,46 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Tâches Hebdo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    .login-container {
-      margin-top: 100px;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: inline-block;
-    }
-    input {
-      padding: 10px;
-      margin: 10px 0;
-      width: 250px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #login-error {
-      color: red;
-      margin-top: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -52,36 +15,9 @@
     <p id="login-error"></p>
   </div>
 
-  <div id="app" style="display:none;">
-    <!-- ICI tu mettras le contenu de ton application : calendrier, tâches, etc. -->
-    <h2>Bienvenue !</h2>
-    <p>Interface principale...</p>
-  </div>
+  <div id="app" style="display: none;"></div>
 
-  <script>
-    function login() {
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const error = document.getElementById("login-error");
-
-      const users = {
-        "admin": "admin",
-        "utilisateur": "user"
-      };
-
-      if (users[username] && users[username] === password) {
-        const isAdmin = username === "admin";
-        sessionStorage.setItem("isAdmin", isAdmin);
-
-        document.getElementById("login-screen").style.display = "none";
-        document.getElementById("app").style.display = "block";
-
-        if (typeof initApp === "function") initApp(); // appelle ton app si elle est séparée
-      } else {
-        error.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
+
